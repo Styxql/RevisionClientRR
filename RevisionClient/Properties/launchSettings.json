@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RevisionClient (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "RevisionClient (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
