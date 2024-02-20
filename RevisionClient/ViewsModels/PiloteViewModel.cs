@@ -15,6 +15,7 @@ namespace RevisionClient.ViewsModels
     public class PiloteViewModel:ObservableObject
     {
         public IRelayCommand BtnSearch { get; }
+        public WSService Service { get; }
 
         private Pilote pilote;
         public Pilote Pilote
@@ -32,6 +33,8 @@ namespace RevisionClient.ViewsModels
         {
             Pilote = new Pilote();
             BtnSearch = new RelayCommand(ActionAddMusique);
+            Service=new WSService("https://localhost:7259/api/");
+            
 
         }
 
@@ -42,8 +45,8 @@ namespace RevisionClient.ViewsModels
         {
             bool res;
 
-            WSService service = new WSService("https://localhost:7151//api/");
-            res = await service.PostSerieAsync(this.Pilote);
+            // Utilisation de l'instance de service créée dans le constructeur
+            res = await Service.PostSerieAsync(this.Pilote);
             if (!res)
             {
                 ContentDialog noApi = new ContentDialog

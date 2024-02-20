@@ -16,7 +16,7 @@ namespace RevisionClient.Models
         }
         [Key]
         [Column("idpilote")]
-        public int Idpilote { get; set; }
+        public int PiloteId { get; set; }
 
         [Column("pilotenom")]
         [StringLength(50)]
